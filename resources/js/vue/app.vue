@@ -2,7 +2,9 @@
     <div class="todoListContainer">
         <div class="heading">
             <h2 class="title">Todo List</h2>
-            <add-item-form />
+            <add-item-form 
+            v-on:reloadlist="getList()"
+             />
         </div>
         <list-view :items="items"
         v-on:reloadlist="getList()"
@@ -12,11 +14,12 @@
 <script>
 import addItemForm from "./addItemForm"
 import listView from "./listView"
-import ListView from './listView.vue'
+import listItem from './listItem'
 export default {
     components: {
         addItemForm,
-        listView
+        listView,
+        listItem
     },
     data: function () {
         return {

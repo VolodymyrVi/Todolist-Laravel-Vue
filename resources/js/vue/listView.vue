@@ -4,7 +4,7 @@
             <list-item 
                 :item="item"
                 class="item"
-                v-on:itenchanged="$emit('reloadlist')"
+                v-on:itemchanged="$emit('reloadlist')"
                 />
         </div>
     </div>
