@@ -6,7 +6,7 @@
         v-model="item.completed"
         >
         <span :class="[item.completed ? 'completed' : '', 'itemText']">{{ item.name }}</span>
-        <button @click="remuveItem()" class="trashcan">
+        <button @click="removeItem()" class="trashcan">
             <font-awesome-icon icon="trash" />
         </button>
     </div>
@@ -28,6 +28,17 @@ export default {
             .catch( error => {
                 console.log( error );
             }) 
+        },
+        removeItem(){
+            axios.delete('api/item/' + this.item.id) 
+            .then( response => {
+                if ( response.status == 200 ) {
+                    this.$emit('itemchanged');
+                }
+            })
+            .catch ( error => {
+                console.log( error );
+            })
         }
     }
 }
