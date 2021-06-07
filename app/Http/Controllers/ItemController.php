@@ -35,7 +35,11 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newItem = new Item;
+        $newItem->name = $request->item["name"];
+        $newItem->save();
+
+        return $newItem;
     }
 
     /**
